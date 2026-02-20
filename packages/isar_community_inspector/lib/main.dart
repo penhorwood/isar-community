@@ -1,14 +1,13 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html';
+// ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:isar_community_inspector/connection_screen.dart';
+import 'package:web/web.dart' as web;
 
 void main() async {
   if (['chrome', 'firefox'].any(
-    (userAgent) => window.navigator.userAgent.toLowerCase().contains(userAgent),
+    (userAgent) => web.window.navigator.userAgent.toLowerCase().contains(userAgent),
   )) {
     runApp(DarkMode(notifier: DarkModeNotifier(), child: const App()));
   } else {
@@ -47,7 +46,7 @@ final _router = GoRouter(
   routes: <GoRoute>[
     GoRoute(
       path: '/',
-      builder: (BuildContext context, GoRouterState state) {
+      builder: (context, state) {
         return const Material(
           child: Center(
             child: Text(
@@ -62,7 +61,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/:port/:secret',
-      builder: (BuildContext context, GoRouterState state) {
+      builder: (context, state) {
         return GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(FocusNode());
@@ -70,8 +69,8 @@ final _router = GoRouter(
           child: Scaffold(
             body: Material(
               child: ConnectionScreen(
-                port: state.params['port']!,
-                secret: state.params['secret']!,
+                port: state.pathParameters['port']!,
+                secret: state.pathParameters['secret']!,
               ),
             ),
           ),
@@ -105,7 +104,7 @@ class App extends StatelessWidget {
 }
 
 class DarkMode extends InheritedNotifier<DarkModeNotifier> {
-  const DarkMode({super.key, super.notifier, required super.child});
+  const DarkMode({required super.child, super.key, super.notifier});
 
   static DarkModeNotifier of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<DarkMode>()!.notifier!;
