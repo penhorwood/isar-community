@@ -17,7 +17,7 @@ dependencies:
     path: ../isar_community
   isar_community_flutter_libs:
     path: ../isar_community_flutter_libs
-  meta: ^1.8.0
+  meta: ^1.17.0
   path: ^1.8.2
   path_provider: ^2.0.10
 
@@ -29,7 +29,7 @@ dev_dependencies:
     path: ../isar_community_generator
   test: ^1.26.3
   test_api: ">=0.7.0 <0.8.0"
-  very_good_analysis: ^3.0.1
+  very_good_analysis: ^10.2.0
 
 
 dependency_overrides:
