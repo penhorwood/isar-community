@@ -21,7 +21,7 @@ platforms:
 dependencies:
   ffi: ">=2.0.0 <3.0.0"
   js: any
-  meta: ^1.18.1
+  meta: ^1.16.0
 
 dev_dependencies:
   ffigen: ^20.1.1
