@@ -7,7 +7,8 @@ import 'package:web/web.dart' as web;
 
 void main() async {
   if (['chrome', 'firefox'].any(
-    (userAgent) => web.window.navigator.userAgent.toLowerCase().contains(userAgent),
+    (userAgent) =>
+        web.window.navigator.userAgent.toLowerCase().contains(userAgent),
   )) {
     runApp(DarkMode(notifier: DarkModeNotifier(), child: const App()));
   } else {
