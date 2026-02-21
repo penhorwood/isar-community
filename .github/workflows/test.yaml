@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Flutter
+      - name: Setup Flutter ${{ env.FLUTTER_OVERRIDE || vars.FLUTTER_VERSION }}
         uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_OVERRIDE || vars.FLUTTER_VERSION }}
@@ -50,7 +50,7 @@ jobs:
         run: flutter pub get
         working-directory: packages/isar_community_inspector
 
-#      - name: Get dependencies (examples)
+#      - name: Get dependencies - examples
 #        run: flutter pub get
 #        working-directory: examples/pub
 
@@ -66,25 +66,38 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Flutter
+      - name: Setup Flutter ${{ env.FLUTTER_OVERRIDE || vars.FLUTTER_VERSION }}
         uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_OVERRIDE || vars.FLUTTER_VERSION }}
-      - run: flutter pub get
+
+      - name: Get dependencies - isar_community
+        run: flutter pub get
         working-directory: packages/isar_community
-      - run: flutter pub get
+
+      - name: Get dependencies - isar_community_flutter_libs
+        run: flutter pub get
         working-directory: packages/isar_community_flutter_libs
-      - run: flutter pub get
+
+      - name: Get dependencies - isar_community_generator
+        run: flutter pub get
         working-directory: packages/isar_community_generator
-      - run: flutter pub get
+
+      - name: Get dependencies - isar_community_inspector
+        run: flutter pub get
         working-directory: packages/isar_community_inspector
+
+#      - name: Get dependencies - examples
 #      - run: flutter pub get
 #        working-directory: examples/pub
-      - run: |
+
+      - name: Get dependencies - isar_test
+        run: |
           flutter pub get
           flutter pub run build_runner build
           dart tool/generate_all_tests.dart
         working-directory: packages/isar_test
+
       - name: Lint
         run: flutter analyze
 
