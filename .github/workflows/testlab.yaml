@@ -1,7 +1,7 @@
 on: workflow_call
 
 env:
-  FLUTTER_OVERRIDE: "3.35.1"
+  FLUTTER_OVERRIDE: "3.41.2"
 
 jobs:
   firebase_testlab_android:

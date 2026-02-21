@@ -1,3 +1,7 @@
+## 3.3.1
+### Updates
+- Compatibility with Flutter `3.41.2`
+
 ## 3.3.0
 
 ### Fixes
@@ -5,19 +9,19 @@
 
 ## 3.3.0-dev.3
 
-### Updates  
+### Updates
 - Potentialy fix some MdbxError and other `libmdbx` errors
 - Forces `libmdbx` flag to release mode (NDEBUG)
 
 ## 3.3.0-dev.2
 
-### Updates  
+### Updates
 - Updated `source_gen` to `^3.0.0`
 - Updated `build` to `^3.0.0`
 
 ## 3.3.0-dev.1
 
-### Updates  
+### Updates
 - Compatibility with Flutter `3.35.0`
 - Updated `libmdbx` to `0.13.8`. Fixes compatibility with older Android devices (kernel < 4)
 
@@ -32,11 +36,11 @@
 
 ## 3.2.0-dev.1
 
-### Features  
-- Added Android Namespaces support.  
+### Features
+- Added Android Namespaces support.
 - Added support for Android 16KB page size issue. ([#120](https://github.com/isar-community/isar/issues/120))
 
-### Updates  
+### Updates
 - Fixed Rust toolchain to version `1.88`
 - Upgraded Gradle dependencies
 - Updated package `source_gen` to `^2.0.0` ([#118](https://github.com/isar-community/isar/issues/118), [#122](https://github.com/isar-community/isar/pull/122))

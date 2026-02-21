@@ -62,16 +62,16 @@ Holy smokes you're here! Let's get started on using the coolest Flutter database
 ### 1. Add to pubspec.yaml
 
 ```yaml
-isar_version: &isar_version 3.3.0 # define the version to be used
+isar_version: &isar_version 3.3.1 # define the version to be used
 
 dependencies:
-  isar_community: 
+  isar_community:
     version: *isar_version
   isar_community_flutter_libs: # contains Isar Core
     version: *isar_version
 
 dev_dependencies:
-  isar_community_generator: 
+  isar_community_generator:
     version: *isar_version
   build_runner: any
 
@@ -193,9 +193,9 @@ queryStream.listen((newResult) {
 
 Benchmarks only give a rough idea of the performance of a database but as you can see, Isar NoSQL database is quite fast 😇
 
-| <img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/insert.png" width="100%" /> | <img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/query.png" width="100%" /> |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/delete.png" width="100%" /> | <img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/size.png" width="100%" />  |
+| `<img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/insert.png" width="100%" />` | `<img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/query.png" width="100%" />` |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `<img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/delete.png" width="100%" />` | `<img src="https://raw.githubusercontent.com/isar-community/isar/v3/.github/assets/benchmarks/size.png" width="100%" />`  |
 
 If you are interested in more benchmarks or want to check how Isar performs on your device you can run the [benchmarks](https://github.com/isar-community/isar_benchmark) yourself.
 
@@ -212,8 +212,11 @@ Make sure to use `flutter test -j 1` to avoid tests running in parallel. This wo
 Big thanks go to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 <!-- prettier-ignore-start -->
+
 <!-- markdownlint-disable -->
+
 <table>
   <tbody>
     <tr>
@@ -247,6 +250,7 @@ Big thanks go to these wonderful people:
 </table>
 
 <!-- markdownlint-restore -->
+
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
