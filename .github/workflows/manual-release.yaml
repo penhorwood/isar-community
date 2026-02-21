@@ -21,7 +21,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_OVERRIDE || vars.FLUTTER_VERSION }}
-      - name: Verify release version
+      - name: Verify release version ${{ github.ref_name }}
         run: |
           flutter pub get
           dart tool/verify_release_version.dart ${{ github.ref_name }}
