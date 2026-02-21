@@ -41,8 +41,8 @@ jobs:
       - run: flutter pub get
         working-directory: packages/isar_community_inspector
       - run: flutter pub get
-        working-directory: examples/pub
-      - run: flutter pub get
+#        working-directory: examples/pub
+#      - run: flutter pub get
         working-directory: packages/isar_test
       - name: Check formatting
         run: dart format --set-exit-if-changed .
@@ -64,8 +64,8 @@ jobs:
         working-directory: packages/isar_community_generator
       - run: flutter pub get
         working-directory: packages/isar_community_inspector
-      - run: flutter pub get
-        working-directory: examples/pub
+#      - run: flutter pub get
+#        working-directory: examples/pub
       - run: |
           flutter pub get
           flutter pub run build_runner build
