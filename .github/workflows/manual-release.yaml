@@ -129,8 +129,8 @@ jobs:
           echo "Listing complete."
       - name: Setup Git and clone target repository
         run: |
-          git config --global user.email "vicente.russo@gmail.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }} via GitHub Actions"
           git clone https://x-access-token:${DEPLOY_TOKEN}@github.com/${{ vars.REPO_BINARIES }}.git repo
           cd repo
           git checkout main || git checkout -b main
@@ -199,8 +199,8 @@ jobs:
           if [ -d "${{ github.ref_name }}" ]; then
             rm -rf "${{ github.ref_name }}"
             git add .
-            git config user.email "vicente.russo@gmail.com"
-            git config user.name "GitHub Actions"
+            git config user.email "${{ github.actor }}@users.noreply.github.com"
+            git config user.name "${{ github.actor }} via GitHub Actions"
             git commit -m "Revert inspector deployment for failed release ${{ github.ref_name }}" || echo "No changes to commit"
             git push origin gh-pages
             echo "Inspector deployment reverted"
@@ -218,8 +218,8 @@ jobs:
           if [ -d "${{ github.ref_name }}" ]; then
             rm -rf "${{ github.ref_name }}"
             git add .
-            git config user.email "vicente.russo@gmail.com"
-            git config user.name "GitHub Actions"
+            git config user.email "${{ github.actor }}@users.noreply.github.com"
+            git config user.name "${{ github.actor }} via GitHub Actions"
             git commit -m "Revert binaries for failed release ${{ github.ref_name }}" || echo "No changes to commit"
             git push origin main
             echo "Binaries deployment reverted"
