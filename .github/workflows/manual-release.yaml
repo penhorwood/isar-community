@@ -122,20 +122,22 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: binaries/
+
       - name: List contents of downloaded artifacts
         run: |
           echo "Listing contents of all downloaded artifacts..."
           ls -Rlh binaries/
           echo "Listing complete."
+
       - name: Setup Git and clone target repository
         run: |
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git config --global user.name "${{ github.actor }} via GitHub Actions"
-          git clone https://x-access-token:${DEPLOY_TOKEN}@github.com/${{ vars.REPO_BINARIES }}.git repo
+
+          git clone git@github.com/${{ vars.REPO_BINARIES }}.git repo
           cd repo
           git checkout main || git checkout -b main
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
       - name: Copy binaries to repository and push
         run: |
           cd repo
@@ -145,9 +147,7 @@ jobs:
           cp ../binaries/**/* "$ISAR_VERSION"
           git add .
           git commit -m "Deploy binaries for version $ISAR_VERSION" || echo "No changes to commit"
-          git push https://x-access-token:${DEPLOY_TOKEN}@github.com/${{ vars.REPO_BINARIES }}.git main
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          git push origin main
 
   # publish:
   #   name: Publish
